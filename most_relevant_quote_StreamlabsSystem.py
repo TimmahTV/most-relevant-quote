@@ -87,8 +87,10 @@ def Init():
 
 def Execute(data):
     if data.IsChatMessage():
-        sendMessage = Parent.SendTwitchMessage if data.IsFromTwitch() else Parent.SendDiscordMessage
-        if data.GetParam(0).lower() == Command: #Change this
+        if data.IsFromTwitch():
+            if data.GetParam(0).lower() == Command: #Change this
+        elif data.IsFromDiscord():
+            if data.GetParam(0).lower() == Command: #Change this
             # Where we process the command
     return
 
